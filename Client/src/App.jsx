@@ -1,11 +1,22 @@
+import React from 'react';
+import { Provider } from "react-redux"
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { store } from './redux/store';
 
 function App() {
-
   return (
-    <div className=" bg-red-500">
-      hello
-    </div>
-  )
+    <>
+      <Provider store={store}>
+        <Header />
+          <main>
+            <Outlet />
+          </main>
+        <Footer />
+      </Provider>
+    </>
+  );
 }
 
-export default App
+export default App;
